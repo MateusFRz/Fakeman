@@ -1,27 +1,33 @@
 package game.entity;
 
+import game.input.Direction;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class Entity {
 
-    private int x,y;
+    private final IntegerProperty xProperty = new SimpleIntegerProperty();
+    public final int getXProperty() { return xProperty.get(); }
+    public final void setXProperty(int x) { xProperty.set(x);}
+    public IntegerProperty xProperty() { return xProperty; }
+
+    private final IntegerProperty yProperty = new SimpleIntegerProperty();
+    public final int getYProperty() { return yProperty.get(); }
+    public final void setYProperty(int y) { yProperty.set(y);}
+    public IntegerProperty yProperty() { return yProperty; }
+
+    private Direction direction = null;
 
     public Entity(int x, int y) {
-        this.x = x;
-        this.y = y;
+        setYProperty(y);
+        setXProperty(x);
     }
 
-    public int getX() {
-        return x;
+    public Direction getDirection() {
+        return direction;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public void updateX(int x) {
-        this.x = x;
-    }
-
-    public void updateY(int y) {
-        this.y = y;
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 }

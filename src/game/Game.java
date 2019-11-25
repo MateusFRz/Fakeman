@@ -2,11 +2,11 @@ package game;
 
 import game.entity.Enemy;
 import game.entity.Player;
+import game.input.KeyboardInput;
 import game.map.Map;
+import javafx.scene.Scene;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Game {
 
@@ -15,15 +15,25 @@ public class Game {
     private Player player;
 
     public Game() {
-        player = new Player(0,0);
+        this.player = new Player(0,0);
         for (int i=0; i<4; i++)
             enemies.add(new Enemy(0,0));
     }
 
-    public void launch() {
+    public void launch(Scene scene) {
+        TimerTask task = new GameThread(this);
+        Timer timer = new Timer();
+
+        timer.schedule(task, 0,1);
+
+        scene.setOnKeyPressed(new KeyboardInput(this));
     }
 
     private List<Enemy> getEnemies() {
         return Collections.unmodifiableList(enemies);
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

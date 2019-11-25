@@ -1,25 +1,31 @@
 package game.input;
 
+import game.Game;
 import javafx.event.EventHandler;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class KeyboardInput implements EventHandler<KeyEvent> {
+
+    private Game game;
+
+    public KeyboardInput(Game game) {
+        this.game = game;
+    }
 
     @Override
     public void handle(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
             case Z:
-                //UP
+                game.getPlayer().setDirection(Direction.UP);
                 break;
             case Q:
-                //LEFT
+                game.getPlayer().setDirection(Direction.LEFT);
                 break;
             case S:
-                //DOWN
+                game.getPlayer().setDirection(Direction.DOWN);
                 break;
             case D:
-                //RIGHT
+                game.getPlayer().setDirection(Direction.RIGHT);
                 break;
             case ESCAPE:
                 //PAUSE
