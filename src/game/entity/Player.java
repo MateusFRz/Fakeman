@@ -28,4 +28,14 @@ public class Player extends Entity {
         this(x,y,DEFAULT_LIFE_NUMBER);
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "scoreProperty=" + scoreProperty +
+                ", lifeProperty=" + lifeProperty +
+                ", direction=" + getDirection() +
+                ", x=" + getXProperty() +
+                ", y=" + getYProperty() +
+                '}';
+    }
 }

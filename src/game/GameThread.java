@@ -9,7 +9,7 @@ public class GameThread extends TimerTask {
     private Game game;
     private Player player;
 
-    public GameThread(Game game) {
+    GameThread(Game game) {
         this.game = game;
         player = game.getPlayer();
     }
@@ -17,6 +17,7 @@ public class GameThread extends TimerTask {
 
     @Override
     public void run() {
+        System.out.println(player);
         switch (player.getDirection()) {
             case UP:
                 player.setYProperty(player.getYProperty() + 1);
@@ -29,6 +30,8 @@ public class GameThread extends TimerTask {
                 break;
             case LEFT:
                 player.setXProperty(player.getXProperty() - 1);
+                break;
+            default:
                 break;
         }
     }

@@ -16,7 +16,7 @@ public class Entity {
     public final void setYProperty(int y) { yProperty.set(y);}
     public IntegerProperty yProperty() { return yProperty; }
 
-    private Direction direction = null;
+    private Direction direction = Direction.NONE;
 
     public Entity(int x, int y) {
         setYProperty(y);
