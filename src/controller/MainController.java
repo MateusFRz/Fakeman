@@ -26,8 +26,8 @@ public class MainController {
         playerIcon.setRadius(20);
         playerIcon.setFill(Paint.valueOf("#ede80d"));
 
-        playerIcon.centerXProperty().bind(game.getPlayer().xProperty());
-        playerIcon.centerYProperty().bind(game.getPlayer().yProperty());
+        playerIcon.translateXProperty().bind(game.getPlayer().xProperty());
+        playerIcon.translateYProperty().bind(game.getPlayer().yProperty());
 
 //        map.setFill(Color.TRANSPARENT);
 //        map.setStroke(Color.BLACK);

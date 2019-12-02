@@ -18,6 +18,8 @@ public class Entity {
 
     private Direction direction = Direction.NONE;
 
+    private int speed = 1;
+
     public Entity(int x, int y) {
         setYProperty(y);
         setXProperty(x);
@@ -25,6 +27,14 @@ public class Entity {
 
     public Direction getDirection() {
         return direction;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     public void setDirection(Direction direction) {

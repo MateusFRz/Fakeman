@@ -1,6 +1,7 @@
 package game;
 
 import game.entity.Player;
+import game.map.Map;
 
 import java.util.TimerTask;
 
@@ -14,24 +15,22 @@ public class GameThread extends TimerTask {
         player = game.getPlayer();
     }
 
-
     @Override
     public void run() {
-        System.out.println(player);
+        Map map = game.getMap();
         switch (player.getDirection()) {
             case UP:
-                player.setYProperty(player.getYProperty() + 1);
+                player.setYProperty(player.getYProperty() -
+                        (player.getYProperty() <= map.getMinHeight() ? 0 : player.getSpeed()));
                 break;
             case DOWN:
-                player.setYProperty(player.getYProperty() - 1);
+                player.setYProperty(player.getYProperty() + (player.getYProperty() >= map.getMaxHeight() ? 0 : player.getSpeed()));
                 break;
             case RIGHT:
-                player.setXProperty(player.getXProperty() + 1);
+                player.setXProperty(player.getXProperty() + (player.getXProperty() >= map.getMaxWidth() ? 0 : player.getSpeed()));
                 break;
             case LEFT:
-                player.setXProperty(player.getXProperty() - 1);
-                break;
-            default:
+                player.setXProperty(player.getXProperty() - (player.getXProperty() <= map.getMinWidth() ? 0 : player.getSpeed()));
                 break;
         }
     }
