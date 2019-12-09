@@ -2,13 +2,22 @@ package game.map;
 
 public class Map {
 
-    private final int height, width, x, y;
+    private int height, width;
+    private final int x, y;
 
     public Map(int height, int width, int x, int y) {
         this.height = height;
         this.width = width;
         this.x = x;
         this.y = y;
+    }
+
+    public Map(int x, int y) {
+        this(0, 0, x, y);
+    }
+
+    public Map() {
+        this(0,0);
     }
 
     /**
@@ -25,6 +34,14 @@ public class Map {
      * */
     public int getX() {
         return x;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public int getHeight() {
@@ -54,7 +71,7 @@ public class Map {
         return getX() + (getWidth()/2);
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "Map{" +
                 "height=" + height +
@@ -66,5 +83,5 @@ public class Map {
                 ", minWidth=" + getMinWidth() +
                 ", maxWidth=" + getMaxWidth() +
                 '}';
-    }*/
+    }
 }

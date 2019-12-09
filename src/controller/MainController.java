@@ -2,15 +2,14 @@ package controller;
 
 import game.Game;
 import javafx.fxml.FXML;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 public class MainController {
 
-    @FXML private Rectangle map;
-    @FXML private GridPane gridPane;
+    @FXML private BorderPane borderPane;
     @FXML private Circle playerIcon;
 
     private final Game game;
@@ -21,7 +20,8 @@ public class MainController {
 
     @FXML
     private void initialize() {
-        gridPane.setMinSize(1536,768);
+        game.getMap().setHeight((int) borderPane.getHeight());
+        game.getMap().setWidth((int) borderPane.getWidth());
 
         playerIcon.setRadius(20);
         playerIcon.setFill(Paint.valueOf("#ede80d"));
@@ -29,7 +29,5 @@ public class MainController {
         playerIcon.translateXProperty().bind(game.getPlayer().xProperty());
         playerIcon.translateYProperty().bind(game.getPlayer().yProperty());
 
-//        map.setFill(Color.TRANSPARENT);
-//        map.setStroke(Color.BLACK);
     }
 }

@@ -2,16 +2,16 @@ package game.entity;
 
 public class Point extends Entity {
 
-    private final int DEFAULT_SCORE = 1;
+    private final int DEFAULT_VALUE = 1;
 
-    private int score;
+    private int value;
 
     public Point(int x, int y) {
         super(x, y);
-        this.score = DEFAULT_SCORE;
+        this.value = DEFAULT_VALUE;
     }
 
-    public int getScore() {
-        return score;
+    public int getValue() {
+        return value;
     }
 }

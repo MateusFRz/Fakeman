@@ -2,36 +2,41 @@ package game;
 
 import game.entity.Enemy;
 import game.entity.Player;
+import game.entity.Point;
 import game.map.Map;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
 
-import java.io.IOException;
 import java.util.*;
 
 public class Game {
 
     private static final int ENEMIES_NUMBER = 4;
-    public static final int HEIGHT = 512;
-    public static final int WIDTH = 512;
-    public static final int X_MAP = 750;
-    public static final int Y_MAP = 256;
+    private static final int X_MAP = 0;
+    private static final int Y_MAP = 0;
 
     private Map map;
     private List<Enemy> enemies = new ArrayList<>();
+    private List<Point> points = new ArrayList<>();
     private Player player;
-    private Timer timer;
+    private Thread thread;
+    private ObservableValue<? extends String> FPS;
+
 
     public Game() {
-        map = new Map(HEIGHT, WIDTH, X_MAP, Y_MAP);
-        this.player = new Player(map.getX(), map.getY());
+        map = new Map(X_MAP, Y_MAP);
+        player = new Player(0, 0);
+
         for (int i=0; i<ENEMIES_NUMBER; i++)
             enemies.add(new Enemy(0,0));
     }
 
-    public void launch() throws IOException {
-        TimerTask task = new GameThread(this);
+    public void launch() {
+        thread = new Thread(new GameThread(this));
 
-        timer = new Timer();
-        timer.schedule(task, 0,20);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     private List<Enemy> getEnemies() {
@@ -45,6 +50,6 @@ public class Game {
     }
 
     public void stop() {
-        timer.cancel();
+        thread.interrupt();
     }
 }

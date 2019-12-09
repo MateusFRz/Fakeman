@@ -29,7 +29,7 @@ public class Player extends Entity {
         this(x,y,DEFAULT_LIFE_NUMBER);
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "Player{" +
                 "scoreProperty=" + scoreProperty +
@@ -38,5 +38,5 @@ public class Player extends Entity {
                 ", x=" + getXProperty() +
                 ", y=" + getYProperty() +
                 '}';
-    }*/
+    }
 }

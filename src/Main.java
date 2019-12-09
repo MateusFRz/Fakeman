@@ -24,7 +24,7 @@ public class Main extends Application {
 
         stage.setTitle(GAME_TITLE);
 
-        //stage.setFullScreen(true);
+        stage.setFullScreen(true);
         stage.setScene(scene);
 
         stage.show();
