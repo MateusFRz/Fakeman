@@ -1,19 +1,26 @@
 package game.map;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class Map {
 
-    private int height, width;
+
+    private final IntegerProperty heightProperty = new SimpleIntegerProperty();
+    public final int getHeightProperty() { return heightProperty.get(); }
+    public final void setHeightProperty(int height) { heightProperty.set(x);}
+    public IntegerProperty heightProperty() { return heightProperty; }
+
+    private final IntegerProperty widthProperty = new SimpleIntegerProperty();
+    public final int getWidthProperty() { return widthProperty.get(); }
+    public final void setWidthProperty(int width) { widthProperty.set(x);}
+    public IntegerProperty widthProperty() { return widthProperty; }
+
     private final int x, y;
 
-    public Map(int height, int width, int x, int y) {
-        this.height = height;
-        this.width = width;
+    public Map(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public Map(int x, int y) {
-        this(0, 0, x, y);
     }
 
     public Map() {
@@ -36,46 +43,30 @@ public class Map {
         return x;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
     public int getMinHeight() {
-        return getY() - (getHeight()/2);
+        return getY();
     }
 
 
     public int getMaxHeight() {
-        return getY() + (getHeight()/2);
+        return getY() + getHeightProperty();
     }
 
 
     public int getMinWidth() {
-        return getX() - (getWidth()/2);
+        return getX();
     }
 
 
     public int getMaxWidth() {
-        return getX() + (getWidth()/2);
+        return getX() + getWidthProperty();
     }
 
     @Override
     public String toString() {
         return "Map{" +
-                "height=" + height +
-                ", width=" + width +
+                "height=" + getHeightProperty() +
+                ", width=" + getWidthProperty() +
                 ", x=" + x +
                 ", y=" + y +
                 ", minHeight=" + getMinHeight() +

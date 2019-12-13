@@ -1,12 +1,11 @@
 package game;
 
+import game.collision.EntityCollision;
 import game.entity.Enemy;
+import game.entity.Entity;
 import game.entity.Player;
 import game.entity.Point;
 import game.map.Map;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableValue;
 
 import java.util.*;
 
@@ -17,11 +16,10 @@ public class Game {
     private static final int Y_MAP = 0;
 
     private Map map;
-    private List<Enemy> enemies = new ArrayList<>();
-    private List<Point> points = new ArrayList<>();
+    private List<Entity> entities = new ArrayList<>();
+    private EntityCollision collision;
     private Player player;
     private Thread thread;
-    private ObservableValue<? extends String> FPS;
 
 
     public Game() {
@@ -29,7 +27,9 @@ public class Game {
         player = new Player(0, 0);
 
         for (int i=0; i<ENEMIES_NUMBER; i++)
-            enemies.add(new Enemy(0,0));
+            entities.add(new Enemy(0,0));
+
+        collision = new EntityCollision(entities);
     }
 
     public void launch() {
@@ -39,14 +39,18 @@ public class Game {
         thread.start();
     }
 
-    private List<Enemy> getEnemies() {
-        return Collections.unmodifiableList(enemies);
+    private List<Entity> getEntityList() {
+        return Collections.unmodifiableList(entities);
     }
 
     public Map getMap() { return map;}
 
     public Player getPlayer() {
         return player;
+    }
+
+    public EntityCollision getCollision() {
+        return collision;
     }
 
     public void stop() {

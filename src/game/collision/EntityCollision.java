@@ -1,19 +1,36 @@
 package game.collision;
 
 import game.entity.Entity;
-import game.map.Map;
 
-public class EntityCollision extends Collision {
+import java.util.List;
 
-    private Entity entity;
-    private Map map;
+public class EntityCollision {
 
-    public EntityCollision(Entity entity, Map map) {
-        this.entity = entity;
-        this.map = map;
+    private List<Entity> entities;
+
+    public EntityCollision(List<Entity> entities) {
+        this.entities = entities;
     }
 
-    public void call() {
+    public Entity entityHit(Entity myEntity) {
+        for (Entity entity : entities) {
+            if (entity == myEntity) continue;
+            if (entity.getXProperty() == myEntity.getXProperty()) {
+                if (entity.getYProperty() == myEntity.getYProperty())
+                    return entity;
+            }
+        }
+        return null;
+    }
 
+    public boolean isHitting(Entity myEntity) {
+        for (Entity entity : entities) {
+            if (entity == myEntity) continue;
+            if (entity.getXProperty() == myEntity.getXProperty()) {
+                if (entity.getYProperty() == myEntity.getYProperty())
+                    return true;
+            }
+        }
+        return false;
     }
 }

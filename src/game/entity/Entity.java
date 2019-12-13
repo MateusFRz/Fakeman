@@ -1,6 +1,7 @@
 package game.entity;
 
 import game.input.Direction;
+import game.map.Map;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -39,5 +40,22 @@ public class Entity {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public void move(Map map) {
+        switch (getDirection()) {
+            case UP:
+                setYProperty(getYProperty() - (getYProperty() <= map.getMinHeight() ? 0 : getSpeed()));
+                break;
+            case DOWN:
+                setYProperty(getYProperty() + (getYProperty() >= map.getMaxHeight() ? 0 : getSpeed()));
+                break;
+            case RIGHT:
+                setXProperty(getXProperty() + (getXProperty() >= map.getMaxWidth() ? 0 : getSpeed()));
+                break;
+            case LEFT:
+                setXProperty(getXProperty() - (getXProperty() <= map.getMinWidth() ? 0 : getSpeed()));
+                break;
+        }
     }
 }
