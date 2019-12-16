@@ -2,12 +2,14 @@ package game;
 
 import game.entity.Player;
 import game.map.Map;
+import game.entity.Point;
 
 
 public class GameThread implements Runnable {
 
     private Game game;
     private Player player;
+    private Point point;
 
     GameThread(Game game) {
         this.game = game;
