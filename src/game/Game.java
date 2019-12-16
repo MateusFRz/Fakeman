@@ -24,7 +24,7 @@ public class Game {
 
     public Game() {
         map = new Map(X_MAP, Y_MAP);
-        player = new Player(0, 0);
+        player = new Player(0, 0, "");
 
         for (int i=0; i<ENEMIES_NUMBER; i++)
             entities.add(new Enemy(0,0));
@@ -54,6 +54,7 @@ public class Game {
     }
 
     public void stop() {
-        thread.interrupt();
+        if (thread != null && thread.isAlive())
+            thread.interrupt();
     }
 }

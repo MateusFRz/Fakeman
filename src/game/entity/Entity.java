@@ -8,13 +8,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class Entity {
 
     private final IntegerProperty xProperty = new SimpleIntegerProperty();
-    public final int getXProperty() { return xProperty.get(); }
-    public final void setXProperty(int x) { xProperty.set(x);}
+    public int getXProperty() { return xProperty.get(); }
+    public void setXProperty(int x) { xProperty.set(x);}
     public IntegerProperty xProperty() { return xProperty; }
 
     private final IntegerProperty yProperty = new SimpleIntegerProperty();
-    public final int getYProperty() { return yProperty.get(); }
-    public final void setYProperty(int y) { yProperty.set(y);}
+    public int getYProperty() { return yProperty.get(); }
+    public void setYProperty(int y) { yProperty.set(y);}
     public IntegerProperty yProperty() { return yProperty; }
 
     private Direction direction = Direction.NONE;

@@ -7,13 +7,13 @@ public class Map {
 
 
     private final IntegerProperty heightProperty = new SimpleIntegerProperty();
-    public final int getHeightProperty() { return heightProperty.get(); }
-    public final void setHeightProperty(int height) { heightProperty.set(x);}
+    public int getHeightProperty() { return heightProperty.get(); }
+    public void setHeightProperty(int height) { heightProperty.set(x);}
     public IntegerProperty heightProperty() { return heightProperty; }
 
     private final IntegerProperty widthProperty = new SimpleIntegerProperty();
-    public final int getWidthProperty() { return widthProperty.get(); }
-    public final void setWidthProperty(int width) { widthProperty.set(x);}
+    public int getWidthProperty() { return widthProperty.get(); }
+    public void setWidthProperty(int width) { widthProperty.set(x);}
     public IntegerProperty widthProperty() { return widthProperty; }
 
     private final int x, y;
