@@ -17,9 +17,8 @@ public class EntityCollision {
         entities.forEach( entity -> {
             if (entity == myEntity)return;
             if (entity.getXProperty() == myEntity.getXProperty()) {
-                if (entity.getYProperty() == myEntity.getYProperty()) {
+                if (entity.getYProperty() == myEntity.getYProperty())
                     entityHit = entity;
-                }
             }
         });
         return entityHit != null;
