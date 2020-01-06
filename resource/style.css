@@ -1,5 +1,9 @@
 .root {
-    -fx-background-color: limegreen;
+    -fx-background-color: black;
+    -fx-background-image: url("bambou.jpg");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
     -fx-font-size: 24;
 }
 

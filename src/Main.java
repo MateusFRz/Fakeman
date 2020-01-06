@@ -1,4 +1,3 @@
-import controller.MainController;
 import controller.MenuController;
 import game.Game;
 import game.input.KeyboardInput;
