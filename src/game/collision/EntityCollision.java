@@ -7,30 +7,25 @@ import java.util.List;
 public class EntityCollision {
 
     private List<Entity> entities;
+    private Entity entityHit = null;
 
     public EntityCollision(List<Entity> entities) {
         this.entities = entities;
     }
 
-    public Entity entityHit(Entity myEntity) {
-        for (Entity entity : entities) {
-            if (entity == myEntity) continue;
+    public boolean isHitting(Entity myEntity) {
+        entities.forEach( entity -> {
+            if (entity == myEntity)return;
             if (entity.getXProperty() == myEntity.getXProperty()) {
-                if (entity.getYProperty() == myEntity.getYProperty())
-                    return entity;
+                if (entity.getYProperty() == myEntity.getYProperty()) {
+                    entityHit = entity;
+                }
             }
-        }
-        return null;
+        });
+        return entityHit != null;
     }
 
-    public boolean isHitting(Entity myEntity) {
-        for (Entity entity : entities) {
-            if (entity == myEntity) continue;
-            if (entity.getXProperty() == myEntity.getXProperty()) {
-                if (entity.getYProperty() == myEntity.getYProperty())
-                    return true;
-            }
-        }
-        return false;
+    public Entity getEntityHit() {
+        return entityHit;
     }
 }

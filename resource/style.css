@@ -1,0 +1,18 @@
+.root {
+    -fx-background-color: limegreen;
+    -fx-font-size: 24;
+}
+
+#nameField {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #80c25a;
+    -fx-min-height: 50;
+    -fx-min-width: 100;
+}
+
+.button:hover {
+    -fx-background-color: #478e16;
+}

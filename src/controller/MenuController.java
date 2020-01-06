@@ -9,10 +9,10 @@ public class MenuController {
 
     private Game game;
 
-    @FXML TextField playerName;
-    @FXML Button playBtn;
-    @FXML Button scoreBtn;
-    @FXML Button leaveBtn;
+    @FXML private TextField playerName;
+    @FXML private Button playBtn;
+    @FXML private Button scoreBtn;
+    @FXML private Button leaveBtn;
 
     public MenuController(Game game) {
         this.game = game;

@@ -5,11 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <TextField fx:id="playerName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
     <Button fx:id="playBtn" text="Play" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
     <Button fx:id="scoreBtn" text="Score" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
     <Button fx:id="leaveBtn" text="Leave" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-   <Label text="Player Name" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.halignment="CENTER"/>
+    <Label fx:id="nameField" text="Player Name" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
 </GridPane>

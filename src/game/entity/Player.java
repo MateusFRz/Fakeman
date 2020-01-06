@@ -5,15 +5,15 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import java.beans.Transient;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import exception.DeadException;
+
 public class Player extends Entity implements Serializable {
 
-    private static final int SPEED = 3;
     private static final long serialVersionUID = 654685343540L;
 
 
@@ -33,6 +33,7 @@ public class Player extends Entity implements Serializable {
     public StringProperty nameProperty() { return nameProperty; }
 
     private transient static final int DEFAULT_LIFE_NUMBER = 3;
+    private transient static final int SPEED = 3;
 
     public Player(int x, int y, String name, int life) {
         super(x,y);
@@ -45,12 +46,22 @@ public class Player extends Entity implements Serializable {
         this(x, y, name, DEFAULT_LIFE_NUMBER);
     }
 
-    public void die() {
-
+    public void die() throws DeadException {
+        if (getLifeProperty() == 0)
+            throw new DeadException();
+        setLifeProperty(getLifeProperty() - 1);
     }
 
-    private void writeObject(ObjectOutputStream stream) throws IOException {
-        stream.defaultWriteObject();
+    private void readObject(ObjectInputStream inputStream) throws ClassNotFoundException, IOException {
+        inputStream.defaultReadObject();
+        setScoreProperty(inputStream.readInt());
+        setNameProperty(inputStream.readUTF());
+    }
+
+    private void writeObject(ObjectOutputStream outputStream) throws IOException {
+        outputStream.defaultWriteObject();
+        outputStream.writeInt(getScoreProperty());
+        outputStream.writeUTF(getNameProperty());
     }
 
     @Override
