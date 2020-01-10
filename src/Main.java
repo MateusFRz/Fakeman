@@ -18,10 +18,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         game = new Game();
+        MenuController menu = new MenuController(game);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FXML_PATH));
         //fxmlLoader.setController(new MainController(game));
-        fxmlLoader.setController(new MenuController(game));
+        fxmlLoader.setController(menu);
         Scene scene = new Scene(fxmlLoader.load());
 
 

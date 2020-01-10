@@ -11,7 +11,7 @@
     <Button fx:id="playBtn" text="Play" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
     <Button fx:id="scoreBtn" text="Score" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
     <Button fx:id="leaveBtn" text="Leave" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-    <ComboBox fx:id="music" />
+    <ComboBox fx:id="music"/>
     <Label fx:id="nameField" text="Player Name" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
 </GridPane>
