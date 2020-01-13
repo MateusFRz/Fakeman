@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<?import javafx.scene.text.Text?>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/">
+    <Text fx:id="score"/>
+    <Text fx:id="life"/>
+    <Circle fx:id="playerIcon"/>
+</BorderPane>

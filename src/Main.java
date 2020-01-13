@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import save.BinarySave;
 import save.Save;
 
+import java.awt.event.ActionEvent;
+
 public class Main extends Application {
 
     private Game game;
@@ -29,7 +31,6 @@ public class Main extends Application {
 
         stage.setFullScreen(false);
         stage.setScene(scene);
-
         stage.show();
 
         scene.setOnKeyPressed(new KeyboardInput(game));
@@ -45,4 +46,5 @@ public class Main extends Application {
         }
         game.stop();
     }
+
 }
