@@ -3,7 +3,6 @@ package controller;
 import game.Game;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Paint;
@@ -16,6 +15,7 @@ public class MainController {
     @FXML private Circle playerIcon;
     @FXML private Text score;
     @FXML private Text life;
+    @FXML private Circle point1;
 
     private final Game game;
 
@@ -32,6 +32,14 @@ public class MainController {
 
         playerIcon.translateXProperty().bind(game.getPlayer().xProperty());
         playerIcon.translateYProperty().bind(game.getPlayer().yProperty());
+
+        point1.setRadius(5);
+        point1.setFill(Paint.valueOf("#ede80d"));
+
+        point1.setCenterX(200);
+        point1.setCenterY(200);
+
+
 
         game.getMap().heightProperty().bind(borderPane.heightProperty());
         game.getMap().widthProperty().bind(borderPane.widthProperty());

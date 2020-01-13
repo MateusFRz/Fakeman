@@ -1,6 +1,7 @@
 package controller;
 
 import game.Game;
+import game.input.KeyboardInput;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class MenuController {
 
 
     private static final String FXML_PATH = "game.fxml";
+    private static final String FXML_PATH_SCORE = "score.fxml";
 
     @FXML private TextField playerName;
     @FXML private Button playBtn;
@@ -64,20 +66,27 @@ public class MenuController {
             button = (Button) event.getSource();
         } else
             return;
+        System.out.println("Scene changing...");
+
 
         switch (button.getText()) {
             case "Play":
-                //Faut finir sa MERCI (afficher l'autre FXML)
                 MainController gameCtrl = new MainController(game);
-
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH));
                 fxmlLoader.setController(gameCtrl);
                 Scene scene = new Scene(fxmlLoader.load());
-
                 stage.setScene(scene);
                 stage.show();
+                scene.setOnKeyPressed(new KeyboardInput(game));
+                game.launch();
                 break;
             case "Score":
+                ScoreController scoreCtrl = new ScoreController(game,stage);
+                fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH_SCORE));
+                fxmlLoader.setController(scoreCtrl);
+                scene = new Scene(fxmlLoader.load());
+                stage.setScene(scene);
+                stage.show();
                 break;
             case "Leave":
                 exit();

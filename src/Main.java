@@ -33,7 +33,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        scene.setOnKeyPressed(new KeyboardInput(game));
     }
 
     @Override
@@ -46,5 +45,11 @@ public class Main extends Application {
         }
         game.stop();
     }
+
+    //ajout des points pour le score
+    //ajout d'une méthode pour calculer la colision avec une forme
+    //ajout d'un monstre et de murs pour les autres collisions
+    //ajout d'une page pourle résumer des scores enregistrés
+    //regarder pour les ajouts des autres entités si on le fait par listes
 
 }
