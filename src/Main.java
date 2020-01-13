@@ -18,10 +18,9 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         game = new Game();
-        MenuController menu = new MenuController(game);
+        MenuController menu = new MenuController(game, stage);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FXML_PATH));
-        //fxmlLoader.setController(new MainController(game));
         fxmlLoader.setController(menu);
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -34,8 +33,6 @@ public class Main extends Application {
         stage.show();
 
         scene.setOnKeyPressed(new KeyboardInput(game));
-
-        //game.launch();
     }
 
     @Override
@@ -46,7 +43,6 @@ public class Main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         game.stop();
     }
 }

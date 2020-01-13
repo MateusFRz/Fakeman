@@ -3,6 +3,7 @@ package controller;
 import game.Game;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Paint;
@@ -18,6 +19,8 @@ public class MainController {
 
     private final Game game;
 
+    private static final String PLAYER_COLOR = "#ede80d";
+
     public MainController(Game game) {
         this.game = game;
     }
@@ -25,7 +28,7 @@ public class MainController {
     @FXML
     private void initialize() {
         playerIcon.setRadius(20);
-        playerIcon.setFill(Paint.valueOf("#ede80d"));
+        playerIcon.setFill(Paint.valueOf(PLAYER_COLOR));
 
         playerIcon.translateXProperty().bind(game.getPlayer().xProperty());
         playerIcon.translateYProperty().bind(game.getPlayer().yProperty());
