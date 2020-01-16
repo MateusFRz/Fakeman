@@ -27,7 +27,7 @@ public class Game {
         player = new Player(100, 100);
 
         entities.add(player);
-        entities.add(new Point(0, 0));
+        entities.add(new Point(200, 200));
 
         /*for (int i=0; i<ENEMIES_NUMBER; i++)
             entities.add(new Enemy(0,0));*/

@@ -17,8 +17,8 @@ public class EntityCollision {
         entityHit = null;
         entities.forEach( entity -> {
             if (entity == myEntity)return;
-            if (entity.getXProperty()-2 <= myEntity.getXProperty() && entity.getXProperty()+2 >= myEntity.getXProperty()) {
-                if (entity.getYProperty()-2 <= myEntity.getYProperty() && entity.getYProperty()+2 >= myEntity.getYProperty()) {
+            if (entity.getXProperty()-10 <= myEntity.getXProperty() && entity.getXProperty()+10 >= myEntity.getXProperty()) {
+                if (entity.getYProperty()-10 <= myEntity.getYProperty() && entity.getYProperty()+10 >= myEntity.getYProperty()) {
                     entityHit = entity;
                 }
             }
