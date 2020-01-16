@@ -71,7 +71,7 @@ public class MenuController {
 
         switch (button.getText()) {
             case "Play":
-                MainController gameCtrl = new MainController(game);
+                GameController gameCtrl = new GameController(game);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH));
                 fxmlLoader.setController(gameCtrl);
                 Scene scene = new Scene(fxmlLoader.load());
@@ -92,7 +92,7 @@ public class MenuController {
                 exit();
                 break;
             default:
-                return;
+                break;
         }
     }
 }

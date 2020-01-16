@@ -41,7 +41,6 @@ public class ScoreController {
             button = (Button) event.getSource();
         } else
             return;
-        System.out.println("Scene changing...");
 
         switch (button.getText()) {
             case "Return":
@@ -56,7 +55,7 @@ public class ScoreController {
                 exit();
                 break;
             default:
-                return;
+                break;
         }
     }
 }

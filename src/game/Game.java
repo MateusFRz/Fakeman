@@ -24,10 +24,13 @@ public class Game {
 
     public Game() {
         map = new Map(X_MAP, Y_MAP);
-        player = new Player(0, 0, "");
+        player = new Player(100, 100);
 
-        for (int i=0; i<ENEMIES_NUMBER; i++)
-            entities.add(new Enemy(0,0));
+        entities.add(player);
+        entities.add(new Point(0, 0));
+
+        /*for (int i=0; i<ENEMIES_NUMBER; i++)
+            entities.add(new Enemy(0,0));*/
 
         collision = new EntityCollision(entities);
     }
@@ -39,7 +42,7 @@ public class Game {
         thread.start();
     }
 
-    private List<Entity> getEntityList() {
+    public List<Entity> getEntityList() {
         return Collections.unmodifiableList(entities);
     }
 

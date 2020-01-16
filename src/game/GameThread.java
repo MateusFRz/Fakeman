@@ -19,7 +19,7 @@ public class GameThread implements Runnable {
         while (true) {
 
             Map map = game.getMap();
-            player.move(map);
+            player.move(map, game.getCollision());
 
             try {
                 Thread.sleep(16);

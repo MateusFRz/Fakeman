@@ -11,7 +11,20 @@ public class Point extends Entity {
         this.value = DEFAULT_VALUE;
     }
 
+    public void remove() {
+        getEntity().visibleProperty().setValue(false);
+        getEntity().setDisable(true);
+    }
+
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Point {" +
+                ", x=" + getXProperty() +
+                ", y=" + getYProperty() +
+                '}';
     }
 }

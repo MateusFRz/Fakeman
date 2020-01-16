@@ -14,11 +14,13 @@ public class EntityCollision {
     }
 
     public boolean isHitting(Entity myEntity) {
+        entityHit = null;
         entities.forEach( entity -> {
             if (entity == myEntity)return;
-            if (entity.getXProperty() == myEntity.getXProperty()) {
-                if (entity.getYProperty() == myEntity.getYProperty())
+            if (entity.getXProperty()-2 <= myEntity.getXProperty() && entity.getXProperty()+2 >= myEntity.getXProperty()) {
+                if (entity.getYProperty()-2 <= myEntity.getYProperty() && entity.getYProperty()+2 >= myEntity.getYProperty()) {
                     entityHit = entity;
+                }
             }
         });
         return entityHit != null;

@@ -1,5 +1,7 @@
 package game.entity;
 
+import game.collision.EntityCollision;
+import game.map.Map;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -46,10 +48,33 @@ public class Player extends Entity implements Serializable {
         this(x, y, name, DEFAULT_LIFE_NUMBER);
     }
 
+    public Player(int x, int y) {
+        this(x, y, "");
+    }
+
+    public void eat(Point point) {
+        setScoreProperty(getScoreProperty() + point.getValue());
+        point.remove();
+    }
+
     public void die() throws DeadException {
         if (getLifeProperty() == 0)
             throw new DeadException();
         setLifeProperty(getLifeProperty() - 1);
+    }
+
+    @Override
+    public void move(Map map, EntityCollision collision) {
+        super.move(map, collision);
+        try {
+            if (collision.isHitting(this)) {
+                if (collision.getEntityHit() instanceof Point)
+                    eat((Point) collision.getEntityHit());
+                else die();
+            }
+        } catch (DeadException e) {
+            e.printStackTrace();
+        }
     }
 
     private void readObject(ObjectInputStream inputStream) throws ClassNotFoundException, IOException {
@@ -66,7 +91,7 @@ public class Player extends Entity implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "Player {" +
                 "scoreProperty=" + scoreProperty +
                 ", lifeProperty=" + lifeProperty +
                 ", direction=" + getDirection() +
