@@ -2,18 +2,13 @@ package game.entity;
 
 public class Point extends Entity {
 
-    private final int DEFAULT_VALUE = 1;
+    private static final int DEFAULT_VALUE = 1;
 
     private int value;
 
     public Point(int x, int y) {
         super(x, y);
         this.value = DEFAULT_VALUE;
-    }
-
-    public void remove() {
-        getEntity().visibleProperty().setValue(false);
-        getEntity().setDisable(true);
     }
 
     public int getValue() {
@@ -23,7 +18,7 @@ public class Point extends Entity {
     @Override
     public String toString() {
         return "Point {" +
-                ", x=" + getXProperty() +
+                "x=" + getXProperty() +
                 ", y=" + getYProperty() +
                 '}';
     }

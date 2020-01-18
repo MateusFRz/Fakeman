@@ -2,8 +2,10 @@ package exception;
 
 public class DeadException extends Exception {
 
+    private static final String DEFAULT_EXCEPTION_MESSAGE = "Player have not enough life";
+
     public DeadException() {
-        super("Player have not enough life");
+        super(DEFAULT_EXCEPTION_MESSAGE);
     }
 
     public DeadException(String message) {

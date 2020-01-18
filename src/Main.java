@@ -1,6 +1,5 @@
 import controller.MenuController;
 import game.Game;
-import game.input.KeyboardInput;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,7 +7,6 @@ import javafx.stage.Stage;
 import save.BinarySave;
 import save.Save;
 
-import java.awt.event.ActionEvent;
 
 public class Main extends Application {
 
@@ -32,7 +30,6 @@ public class Main extends Application {
         stage.setFullScreen(false);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @Override
@@ -49,7 +46,7 @@ public class Main extends Application {
     //ajout des points pour le score
     //ajout d'une méthode pour calculer la colision avec une forme
     //ajout d'un monstre et de murs pour les autres collisions
-    //ajout d'une page pourle résumer des scores enregistrés
+    //ajout d'une page pour le résumer des scores enregistrés
     //regarder pour les ajouts des autres entités si on le fait par listes
 
 }

@@ -6,8 +6,11 @@ import game.map.Map;
 
 public class GameThread implements Runnable {
 
+    private static final int SLEEP_TIME_MS = 16;
+
     private Game game;
     private Player player;
+    private boolean exit = false;
 
     GameThread(Game game) {
         this.game = game;
@@ -16,16 +19,20 @@ public class GameThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-
-            Map map = game.getMap();
-            player.move(map, game.getCollision());
+        while (!exit) {
+            player.move(game, game.getCollision());
 
             try {
-                Thread.sleep(16);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                Thread.sleep(SLEEP_TIME_MS);
+            } catch (InterruptedException ignored) {}
         }
+    }
+
+    public void stop() {
+        exit = true;
+    }
+
+    public void start() {
+        exit = false;
     }
 }

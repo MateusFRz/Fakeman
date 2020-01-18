@@ -1,5 +1,6 @@
 package game.entity;
 
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 
 public class Enemy extends Entity {
@@ -11,8 +12,8 @@ public class Enemy extends Entity {
     }
 
     @Override
-    public void draw() {
-        super.draw();
+    public void draw(Pane pane) {
+        super.draw(pane);
         getEntity().setFill(Paint.valueOf(COLOR));
     }
 }

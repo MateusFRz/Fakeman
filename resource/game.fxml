@@ -4,13 +4,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Text?>
-
-<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label fx:id="nameField" text="Score: " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-   <top>
-       <Text fx:id="score" />
-   </top>
-   <left>
-       <Text fx:id="life" />
-   </left>
-    </BorderPane>
+<?import javafx.scene.control.Button?>
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="nameField" text="Score: " GridPane.columnIndex="2" GridPane.halignment="CENTER"
+           GridPane.rowIndex="1"/>
+    <top>
+        <Text fx:id="score"/>
+    </top>
+    <center>
+        <Text fx:id="pause" text="Pause..."/>
+    </center>
+    <bottom>
+        <Button fx:id="leave" text="Quit the game" onAction="#handleButtonAction"/>
+    </bottom>
+    <left>
+        <Text fx:id="life"/>
+    </left>
+</BorderPane>

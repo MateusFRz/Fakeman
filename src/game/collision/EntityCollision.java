@@ -15,10 +15,11 @@ public class EntityCollision {
 
     public boolean isHitting(Entity myEntity) {
         entityHit = null;
-        entities.forEach( entity -> {
-            if (entity == myEntity)return;
-            if (entity.getXProperty()-10 <= myEntity.getXProperty() && entity.getXProperty()+10 >= myEntity.getXProperty()) {
-                if (entity.getYProperty()-10 <= myEntity.getYProperty() && entity.getYProperty()+10 >= myEntity.getYProperty()) {
+        entities.forEach(entity -> {
+            if (entity == myEntity) return;
+            double diameter = entity.getEntity().getRadius() * 2;
+            if (entity.getXProperty() - diameter <= myEntity.getXProperty() && entity.getXProperty() + diameter >= myEntity.getXProperty()) {
+                if (entity.getYProperty() - diameter <= myEntity.getYProperty() && entity.getYProperty() + diameter >= myEntity.getYProperty()) {
                     entityHit = entity;
                 }
             }

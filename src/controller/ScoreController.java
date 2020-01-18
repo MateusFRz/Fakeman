@@ -16,15 +16,15 @@ import static javafx.application.Platform.exit;
 public class ScoreController {
 
 
+    private static final String FXML_PATH = "menu.fxml";
     private Game game;
     private Stage stage;
-
-
-    private static final String FXML_PATH = "menu.fxml";
-
-    @FXML private TextField playerName;
-    @FXML private Button returnBtn;
-    @FXML private Button leaveBtn;
+    @FXML
+    private TextField playerName;
+    @FXML
+    private Button returnBtn;
+    @FXML
+    private Button leaveBtn;
 
 
     public ScoreController(Game game, Stage stage) {

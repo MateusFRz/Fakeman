@@ -2,6 +2,7 @@ package controller;
 
 import game.Game;
 import game.input.KeyboardInput;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,15 +27,21 @@ public class MenuController {
     private MediaPlayer mediaPlayer;
 
 
-    private static final String FXML_PATH = "game.fxml";
+    private static final String FXML_PATH_GAME = "game.fxml";
     private static final String FXML_PATH_SCORE = "score.fxml";
 
-    @FXML private TextField playerName;
-    @FXML private Button playBtn;
-    @FXML private Button scoreBtn;
-    @FXML private Button leaveBtn;
-    @FXML private ComboBox<String> music;
-    @FXML private Label nameField;
+    @FXML
+    private TextField playerName;
+    @FXML
+    private Button playBtn;
+    @FXML
+    private Button scoreBtn;
+    @FXML
+    private Button leaveBtn;
+    @FXML
+    private ComboBox<String> music;
+    @FXML
+    private Label nameField;
 
     public MenuController(Game game, Stage stage) {
         this.game = game;
@@ -44,7 +51,7 @@ public class MenuController {
     @FXML
     private void initialize() {
         playerName.textProperty().bindBidirectional(game.getPlayer().nameProperty());
-        nameField.textProperty().bind(game.getPlayer().nameProperty());
+        nameField.textProperty().bind(Bindings.format("Pseudo: %s", game.getPlayer().nameProperty()));
 
         music.getItems().addAll("manu.mp3", "fausse.mp3", "pacman.mp3");
         music.setOnAction(actionEvent -> {
@@ -66,22 +73,20 @@ public class MenuController {
             button = (Button) event.getSource();
         } else
             return;
-        System.out.println("Scene changing...");
 
 
         switch (button.getText()) {
             case "Play":
-                GameController gameCtrl = new GameController(game);
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH));
+                GameController gameCtrl = new GameController(game, stage);
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH_GAME));
                 fxmlLoader.setController(gameCtrl);
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setScene(scene);
                 stage.show();
                 scene.setOnKeyPressed(new KeyboardInput(game));
-                game.launch();
                 break;
             case "Score":
-                ScoreController scoreCtrl = new ScoreController(game,stage);
+                ScoreController scoreCtrl = new ScoreController(game, stage);
                 fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH_SCORE));
                 fxmlLoader.setController(scoreCtrl);
                 scene = new Scene(fxmlLoader.load());

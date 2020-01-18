@@ -28,7 +28,7 @@ public class KeyboardInput implements EventHandler<KeyEvent> {
                 game.getPlayer().setDirection(Direction.RIGHT);
                 break;
             case ESCAPE:
-                //PAUSE
+                game.setPauseProperty(!game.getPauseProperty());
                 break;
         }
     }
