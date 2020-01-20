@@ -2,13 +2,12 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
+
 <BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1">
-    <Label fx:id="nameField" text="Score: " GridPane.columnIndex="2" GridPane.halignment="CENTER"
-           GridPane.rowIndex="1"/>
+    <Label fx:id="nameField" text="Score: "/>
     <top>
         <Text fx:id="score"/>
     </top>

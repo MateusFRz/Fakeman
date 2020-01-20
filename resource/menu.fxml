@@ -7,9 +7,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
 
+<?import javafx.scene.text.Text?>
 <GridPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <ComboBox fx:id="music" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
+    <Label fx:id="state" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
     <Label fx:id="nameField" text="Player Name: " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
     <TextField fx:id="playerName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 

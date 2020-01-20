@@ -7,9 +7,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
 
+<?import javafx.scene.control.ListView?>
 <GridPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
-
+    <ListView fx:id="scores"/>
 
     <Button fx:id="returnBtn" text="Return" onAction="#handleButtonAction" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
     <Button fx:id="leaveBtn" text="Leave" onAction="#handleButtonAction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />

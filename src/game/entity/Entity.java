@@ -13,7 +13,7 @@ import javafx.scene.shape.Circle;
 public class Entity {
 
     private static final String COLOR = "#ede80d";
-    private static final double DEFAULT_RADIUS = 20;
+    private static final double RADIUS = 15;
 
     private final IntegerProperty xProperty = new SimpleIntegerProperty();
     private final IntegerProperty yProperty = new SimpleIntegerProperty();
@@ -97,7 +97,7 @@ public class Entity {
         entity.translateXProperty().bind(xProperty);
         entity.translateYProperty().bind(yProperty);
 
-        entity.setRadius(DEFAULT_RADIUS);
+        entity.setRadius(RADIUS);
         entity.setFill(Paint.valueOf(COLOR));
 
         pane.getChildren().add(entity);

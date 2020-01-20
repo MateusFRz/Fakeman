@@ -22,6 +22,8 @@ public class GameThread implements Runnable {
         while (!exit) {
             player.move(game, game.getCollision());
 
+            game.detectEnd();
+
             try {
                 Thread.sleep(SLEEP_TIME_MS);
             } catch (InterruptedException ignored) {}

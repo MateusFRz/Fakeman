@@ -14,11 +14,12 @@ public class Main extends Application {
 
     private static final String GAME_TITLE = "Bambou";
     private static final String FXML_PATH = "menu.fxml";
+    private static final String FILE_NAME = "data.dat";
 
     @Override
     public void start(Stage stage) throws Exception {
-        game = new Game();
-        MenuController menu = new MenuController(game, stage);
+        game = new Game(stage);
+        MenuController menu = new MenuController(game);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FXML_PATH));
         fxmlLoader.setController(menu);
@@ -36,16 +37,14 @@ public class Main extends Application {
     public void stop() {
         Save save = new BinarySave();
         try {
-            save.save("data.dat", game.getPlayer());
+            save.save(FILE_NAME, game.getPlayer());
         } catch (Exception e) {
             e.printStackTrace();
         }
         game.stop();
     }
 
-    //ajout des points pour le score
-    //ajout d'une méthode pour calculer la colision avec une forme
-    //ajout d'un monstre et de murs pour les autres collisions
+    //ajout d'un monstre
     //ajout d'une page pour le résumer des scores enregistrés
     //regarder pour les ajouts des autres entités si on le fait par listes
 

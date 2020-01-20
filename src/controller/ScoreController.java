@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -18,18 +18,18 @@ public class ScoreController {
 
     private static final String FXML_PATH = "menu.fxml";
     private Game game;
-    private Stage stage;
     @FXML
     private TextField playerName;
     @FXML
     private Button returnBtn;
     @FXML
     private Button leaveBtn;
+    @FXML
+    private ListView scores;
 
 
-    public ScoreController(Game game, Stage stage) {
+    public ScoreController(Game game) {
         this.game = game;
-        this.stage = stage;
     }
 
     @FXML
@@ -44,12 +44,12 @@ public class ScoreController {
 
         switch (button.getText()) {
             case "Return":
-                MenuController menu = new MenuController(game, stage);
+                MenuController menu = new MenuController(game);
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(FXML_PATH));
                 fxmlLoader.setController(menu);
                 Scene scene = new Scene(fxmlLoader.load());
-                stage.setScene(scene);
-                stage.show();
+                game.getStage().setScene(scene);
+                game.getStage().show();
                 break;
             case "Leave":
                 exit();
