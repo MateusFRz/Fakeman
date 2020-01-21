@@ -3,6 +3,10 @@ package game.map;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+
+/**
+ * This is a model class to hold map information
+ * */
 public class Map {
 
 
@@ -14,11 +18,20 @@ public class Map {
     private final IntegerProperty widthProperty = new SimpleIntegerProperty();
 
 
+    /**
+     * Map constructor initialize x and y coords
+     *
+     * @param x Coordinate on the x axis
+     * @param y Coordinate on the y axis
+     * */
     public Map(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Map constructor initialize default coords
+     * */
     public Map() {
         this(DEFAULT_X, DEFAULT_Y);
     }
@@ -63,14 +76,6 @@ public class Map {
 
     public int getMaxWidth() {
         return getX() + getWidthProperty();
-    }
-
-    public void setHeightProperty(int height) {
-        heightProperty.set(x);
-    }
-
-    public void setWidthProperty(int width) {
-        widthProperty.set(x);
     }
 
     public int getWidthProperty() {

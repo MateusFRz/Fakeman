@@ -4,10 +4,19 @@ import game.Game;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
+
+/**
+ * This is a model class to handle keyboard input event
+ *
+ * @see EventHandler
+ * */
 public class KeyboardInput implements EventHandler<KeyEvent> {
 
     private Game game;
 
+    /**
+     * KeyboardInput initialize instance game
+     * */
     public KeyboardInput(Game game) {
         this.game = game;
     }

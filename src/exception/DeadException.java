@@ -1,5 +1,11 @@
 package exception;
 
+
+/**
+ * Exception throw when a player already died and your try to kill kim again
+ *
+ * @see Exception
+ * */
 public class DeadException extends Exception {
 
     private static final String DEFAULT_EXCEPTION_MESSAGE = "Player have not enough life";

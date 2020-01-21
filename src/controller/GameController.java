@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
+/**
+ * Class associated to <code>game.fxml</code> that represent all action do in the graphic application
+ * */
 public class GameController {
 
     private static final String SCORE_FORMAT = "Score: %s";
@@ -32,7 +35,9 @@ public class GameController {
         this.game = game;
     }
 
-
+    /**
+     * Call when fxml is interpreted to build graphic layout
+     * */
     @FXML
     private void initialize() {
         game.launch();
@@ -50,6 +55,10 @@ public class GameController {
         leave.visibleProperty().bind(game.pauseProperty());
     }
 
+    /**
+     *
+     * @param event Type of event called
+     * */
     @FXML
     private void handleButtonAction(ActionEvent event) {
         game.end();

@@ -14,12 +14,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 import static javafx.application.Platform.exit;
 
+/**
+ * Class associated to <code>menu.fxml</code> that represent all action do in the graphic application
+ * */
 public class MenuController {
 
 
@@ -49,6 +51,9 @@ public class MenuController {
         this.game = game;
     }
 
+    /**
+     * Call when fxml is interpreted to build graphic layout
+     * */
     @FXML
     private void initialize() {
         if (game.getState() != null) {
@@ -70,6 +75,12 @@ public class MenuController {
         });
     }
 
+    /**
+     * Call when the user click on a button in the menu
+     *
+     * @param event Type of event called
+     * @throws IOException Input Output Exception
+     * */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         Button button;

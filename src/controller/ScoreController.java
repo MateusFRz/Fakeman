@@ -13,6 +13,9 @@ import java.io.IOException;
 
 import static javafx.application.Platform.exit;
 
+/**
+ * Class associated to <code>score.fxml</code> that represent all action do in the graphic application
+ * */
 public class ScoreController {
 
 
@@ -32,6 +35,12 @@ public class ScoreController {
         this.game = game;
     }
 
+    /**
+     * Call when the user click on a button in the scoreboard
+     *
+     * @param event Type of event called
+     * @throws IOException Input Output Exception
+     * */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         Button button;

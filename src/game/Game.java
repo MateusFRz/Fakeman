@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This is a model class to hold game information
+ * */
 public class Game {
 
     private static final int ENEMIES_NUMBER = 4;
@@ -37,6 +40,14 @@ public class Game {
     private GameState state;
     private Stage stage;
 
+    /**
+     * Game constructor initialize instance stage
+     *
+     * @param stage this the main stage of the app
+     * @see Map
+     * @see Player
+     * @see GameThread
+     * */
     public Game(Stage stage) {
         map = new Map(X_MAP, Y_MAP);
         player = new Player(100, 100);
@@ -45,6 +56,13 @@ public class Game {
         gameThread = new GameThread(this);
     }
 
+    /**
+     * Setup a new game
+     *
+     * @see Point
+     * @see Enemy
+     * @see EntityCollision
+     * */
     public void setup() {
         state = null;
         entities.removeAll(entities);
@@ -59,13 +77,16 @@ public class Game {
         entities.add(new Point(200, 200));
         entities.add(new Enemy(0,0));
 
-        /*for (int i=0; i<ENEMIES_NUMBER; i++)
-            entities.add(new Enemy(0,0));*/
         collision = new EntityCollision(entities);
 
         gameThread.start();
     }
 
+    /**
+     * Start the game by starting the game Thread
+     *
+     * @see Thread
+     * */
     public void launch() {
         setup();
 
@@ -76,8 +97,14 @@ public class Game {
         setPauseProperty(false);
     }
 
+    /**
+     * End the game
+     *
+     * @see MenuController
+     * @see FXMLLoader
+     * @see Scene
+     * */
     public void end() {
-        stop();
         try {
             stop();
 
@@ -94,6 +121,13 @@ public class Game {
 
     }
 
+    /**
+     * Detect the end of the game by checking if the player
+     * still have life or have point in the map
+     *
+     * @see Entity
+     * @see GameState
+     * */
     public void detectEnd() {
 
         for (Entity entity : entities) {
@@ -109,31 +143,74 @@ public class Game {
         end();
     }
 
+    /**
+     * Stop the actual game
+     * */
+    public void stop() {
+        setPauseProperty(true);
+        gameThread.stop();
+    }
+
+    /**
+     * Get unmodifiable entities list
+     *
+     * @return list <code>Collections</code>
+     * */
     public List<Entity> getEntityList() {
         return Collections.unmodifiableList(entities);
     }
 
+    /**
+     * Remove entity for the vue and the entities list
+     *
+     * @param entity Entity to remove
+     * */
     public void removeEntity(Entity entity) {
         entity.remove();
         entities.remove(entity);
     }
 
+    /**
+     * Get the game map
+     *
+     * @return map <code>Map</code>
+     * */
     public Map getMap() {
         return map;
     }
 
+    /**
+     * Get player
+     *
+     * @return player <code>Player</code>
+     * */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Get collision
+     *
+     * @return collision <code>EntityCollision</code>
+     * */
     public EntityCollision getCollision() {
         return collision;
     }
 
+    /**
+     * Get stage
+     *
+     * @return stage <code>Stage</code>
+     * */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     * Set pause
+     *
+     * @param pause
+     * */
     public void setPauseProperty(boolean pause) {
         pauseProperty.set(pause);
         if (pause) thread.suspend(); ///Resume thread
@@ -148,11 +225,11 @@ public class Game {
         return pauseProperty;
     }
 
-    public void stop() {
-        setPauseProperty(true);
-        gameThread.stop();
-    }
-
+    /**
+     * Get game state
+     *
+     * @return state <code>GameState</code>
+     * */
     public GameState getState() {
         return state;
     }
