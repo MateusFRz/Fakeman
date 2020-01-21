@@ -1,6 +1,9 @@
 # IDE directory
 .idea
 
+# Out from compilation
+out
+
 # Compiled class file
 *.class
 
@@ -15,4 +18,5 @@
 *.zip
 *.tar.gz
 *.rar
-/out/
+
+
