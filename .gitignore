@@ -3,6 +3,7 @@
 
 # Out from compilation
 out
+data.dat
 
 # Compiled class file
 *.class
